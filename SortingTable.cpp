@@ -323,8 +323,8 @@ void quickSort()
         const int size = 100;
         int tab[size];
         
-        auto start = std::chrono::high_resolution_clock::now();
         randomizeArray(tab, size);
+        auto start = std::chrono::high_resolution_clock::now();
         triRapide(tab, 0, size - 1);
         auto stop = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -343,37 +343,31 @@ void quickSort()
         const int size = 10000;
         int tab[size];
 
-        auto start = std::chrono::high_resolution_clock::now();
         randomizeArray(tab, size);
+        auto start = std::chrono::high_resolution_clock::now();
         triRapide(tab, 0, size - 1);
         auto stop = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        
-        std::cout << "Contenue du tableau de 100" << std::endl;
-        afficherTableau(tab, size);
 
         std::cout << "Taille du tableau: " << size << std::endl;
-        
         std::cout << "Temps d'exécution pour le tri rapide : " << duration.count() << " microseconds" << std::endl;
     }
 
-    //Test avec un tableau de taille 10000 trié dans l'ordre inverse
+    //Test avec un tableau de taille 10000 trié dans l'ordre inverse remis dans l'ordre
     if(choice == 'd' || choice == 'D')
     {
         const int size = 10000;
         int tab[size];
 
-        auto start = std::chrono::high_resolution_clock::now();
+       
         randomizeArray(tab, size);
         triRapideInverse(tab, 0, size - 1);
+        auto start = std::chrono::high_resolution_clock::now();
+        triRapide(tab, 0, size - 1);
         auto stop = std::chrono::high_resolution_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-        
-        std::cout << "Contenue du tableau de 100" << std::endl;
-        afficherTableau(tab, size);
 
         std::cout << "Taille du tableau: " << size << std::endl;
-
         std::cout << "Temps d'exécution pour le tri rapide : " << duration.count() << " microseconds" << std::endl;
     }
 }
